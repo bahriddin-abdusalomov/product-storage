@@ -22,7 +22,7 @@
 
                 <Label Content="BarCode" FontWeight="SemiBold"/>
                 <TextBox x:Name="txtBarCode" Margin="0,5" PreviewTextInput="NumberValidationTextBox" Height="25" FontSize="14"/>
-
+ 
                 <Label Content="Mahsulot nomi" FontWeight="SemiBold"/>
                 <TextBox x:Name="txtName" Margin="0,5" Height="25" FontSize="14"/>
 
