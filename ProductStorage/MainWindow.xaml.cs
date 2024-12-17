@@ -18,18 +18,15 @@ namespace ProductStorage
             InitializeComponent();
             using (var db = new AppDbContext())
             {
-                db.Database.EnsureCreated(); // Bazani yaratish
+                db.Database.EnsureCreated(); 
             }
         }
 
-
-        // Raqam kiritishni tekshirish
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !decimal.TryParse(e.Text, out _);
         }
 
-        // Add Button
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBarCode.Text) ||
@@ -44,13 +41,6 @@ namespace ProductStorage
 
             using (var db = new AppDbContext())
             {
-                // BarCode takrorlanishini tekshirish
-                if (db.Products.Any(p => p.BarCode == txtBarCode.Text))
-                {
-                    MessageBox.Show("Bu mahsulot bazada mavjud!", "Xatolik", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
-
                 var product = new Product
                 {
                     BarCode = txtBarCode.Text,
@@ -77,6 +67,27 @@ namespace ProductStorage
             txtCostPrice.Clear();
             txtSalePrice.Clear();
         }
+
+        private void txtBarCode_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            string barCodeInput = txtBarCode.Text;
+
+            if (string.IsNullOrWhiteSpace(barCodeInput))
+                return;
+
+            using (var db = new AppDbContext())
+            {
+                bool exists = db.Products.Any(p => p.BarCode == barCodeInput);
+
+                if (exists)
+                {
+                    MessageBox.Show("Bu BarCode bazada allaqachon mavjud!", "Ogohlantirish",
+                                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                    txtBarCode.Clear();
+                }
+            }
+        }
+
 
         private void btnGetAll_Click(object sender, RoutedEventArgs e)
         {

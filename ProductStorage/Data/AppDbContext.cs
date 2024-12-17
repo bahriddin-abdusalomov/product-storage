@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
 using ProductStorage.Models;
 using System.Collections.Generic;
 
@@ -11,6 +10,6 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost; Database=product-storage; User ID=postgres; Port=5432; Password=0809;");
+        optionsBuilder.UseNpgsql("Host=localhost; Database=product-storage; User ID=postgres; Port=5432; Password=1234;");
     }
 }

@@ -21,8 +21,11 @@
                            Margin="0,0,0,10" />
 
                 <Label Content="BarCode" FontWeight="SemiBold"/>
-                <TextBox x:Name="txtBarCode" Margin="0,5" PreviewTextInput="NumberValidationTextBox" Height="25" FontSize="14"/>
- 
+                <TextBox x:Name="txtBarCode" Margin="0,5" 
+                         PreviewTextInput="NumberValidationTextBox" 
+                         TextChanged="txtBarCode_TextChanged" 
+                         Height="25" FontSize="14"/>
+
                 <Label Content="Mahsulot nomi" FontWeight="SemiBold"/>
                 <TextBox x:Name="txtName" Margin="0,5" Height="25" FontSize="14"/>
 
