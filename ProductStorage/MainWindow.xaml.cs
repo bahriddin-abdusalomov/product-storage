@@ -31,13 +31,14 @@ namespace ProductStorage
         {
             if (string.IsNullOrWhiteSpace(txtBarCode.Text) ||
                 string.IsNullOrWhiteSpace(txtName.Text) ||
-                string.IsNullOrWhiteSpace(txtReminderAmount.Text) ||
                 string.IsNullOrWhiteSpace(txtCostPrice.Text) ||
                 string.IsNullOrWhiteSpace(txtSalePrice.Text))
             {
                 MessageBox.Show("Barcha maydonlarni to'ldiring!", "Xatolik", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            if (string.IsNullOrWhiteSpace(txtReminderAmount.Text))
+                txtReminderAmount.Text = "0";
 
             using (var db = new AppDbContext())
             {
@@ -45,7 +46,7 @@ namespace ProductStorage
                 {
                     BarCode = txtBarCode.Text,
                     Name = txtName.Text,
-                    ReminderAmount = int.Parse(txtReminderAmount.Text),
+                    ReminderAmount = txtReminderAmount.Text.ToLower(),
                     CostPrice = decimal.Parse(txtCostPrice.Text),
                     SalePrice = decimal.Parse(txtSalePrice.Text)
                 };
@@ -139,8 +140,6 @@ namespace ProductStorage
                         FileName = fullPath,
                         UseShellExecute = true
                     });
-
-                    MessageBox.Show($"Fayl muvaffaqiyatli yaratildi va ochildi: {fullPath}", "Muvaffaqiyat", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {

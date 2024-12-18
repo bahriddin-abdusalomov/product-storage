@@ -11,7 +11,7 @@ using ProductStorage.Data;
 namespace ProductStorage.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241217124049_InitialMig")]
+    [Migration("20241218082817_InitialMig")]
     partial class InitialMig
     {
         /// <inheritdoc />
@@ -43,8 +43,8 @@ namespace ProductStorage.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("ReminderAmount")
-                        .HasColumnType("integer");
+                    b.Property<string>("ReminderAmount")
+                        .HasColumnType("text");
 
                     b.Property<decimal>("SalePrice")
                         .HasColumnType("numeric");

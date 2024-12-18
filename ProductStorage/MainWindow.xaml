@@ -30,7 +30,7 @@
                 <TextBox x:Name="txtName" Margin="0,5" Height="25" FontSize="14"/>
 
                 <Label Content="Eslatma miqdori" FontWeight="SemiBold"/>
-                <TextBox x:Name="txtReminderAmount" Margin="0,5" PreviewTextInput="NumberValidationTextBox" Height="25" FontSize="14"/>
+                <TextBox x:Name="txtReminderAmount" Margin="0,5" Height="25" FontSize="14"/>
 
                 <Label Content="Tan narxi" FontWeight="SemiBold"/>
                 <TextBox x:Name="txtCostPrice" Margin="0,5" PreviewTextInput="NumberValidationTextBox" Height="25" FontSize="14"/>

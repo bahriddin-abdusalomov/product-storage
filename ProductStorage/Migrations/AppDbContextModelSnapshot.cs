@@ -40,8 +40,8 @@ namespace ProductStorage.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("ReminderAmount")
-                        .HasColumnType("integer");
+                    b.Property<string>("ReminderAmount")
+                        .HasColumnType("text");
 
                     b.Property<decimal>("SalePrice")
                         .HasColumnType("numeric");

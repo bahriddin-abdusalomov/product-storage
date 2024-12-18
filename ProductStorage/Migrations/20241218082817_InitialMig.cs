@@ -19,7 +19,7 @@ namespace ProductStorage.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     BarCode = table.Column<string>(type: "text", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    ReminderAmount = table.Column<int>(type: "integer", nullable: false),
+                    ReminderAmount = table.Column<string>(type: "text", nullable: true),
                     CostPrice = table.Column<decimal>(type: "numeric", nullable: false),
                     SalePrice = table.Column<decimal>(type: "numeric", nullable: false)
                 },
